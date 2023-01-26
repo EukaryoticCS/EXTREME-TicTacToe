@@ -6,8 +6,7 @@ import View.Display;
 
 public class Main {
     public static void main(String[] args) {
-
-        Display.InitializeBoards();
+        Display.DisplayBigBoard(Display.InitializeBoards(),new int[]{1,0});
 
     }
 }

@@ -1,0 +1,5 @@
+
+*.class
+out/production/EXTREME_TicTacToe/Controller/Main.class
+out/production/EXTREME_TicTacToe/View/Display.class
+/out/
