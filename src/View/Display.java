@@ -15,7 +15,7 @@ public class Display {
                     for (int smallColumn = 0; smallColumn < 3; smallColumn++) {
                         System.out.print(bigBoard.board[rows][column].board[smallRows][smallColumn]);
                         if (smallColumn != 2) {
-                            if (coordinates[0] == rows && coordinates[1] == column)
+                            if ((coordinates[0] == rows || coordinates[0] == -1) && (coordinates[1] == column|| coordinates[1] == -1) )
                                 Console.print(" | ", Console.RED);
                             else
                                 Console.print(" | ", Console.BLUE);
