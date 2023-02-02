@@ -1,13 +1,6 @@
 package View;
 
 public class Display {
-
-
-    public static void DisplayTheBoard() {
-
-
-    }
-
     public static void DisplayBigBoard(BigBoard bigBoard, int[] coordinates) { //Takes in a board object and coordinates and based off the coordinates it will make that board area red
         for (int rows = 0; rows < 3; rows++) {
             for (int smallRows = 0; smallRows < 3; smallRows++) {

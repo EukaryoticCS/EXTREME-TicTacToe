@@ -22,9 +22,9 @@ public class Console {
     public static final String RESET = "\u001B[0m";
 
 
-        static Scanner scanner = new Scanner(System.in);
+        public static Scanner scanner = new Scanner(System.in);
 
-        static String getString(String prompt){
+        public static String getString(String prompt){
             System.out.print(prompt);
             return scanner.nextLine();
         }
@@ -51,7 +51,7 @@ public class Console {
 
  */
 
-        static int getInteger(String prompt, int min, int max) {
+        public static int getInteger(String prompt, int min, int max) {
             int i = 0;
 
             boolean valid = false;
@@ -74,7 +74,7 @@ public class Console {
             return i;
         }
 
-        static float getFloat(String prompt) {
+        public static float getFloat(String prompt) {
             float result = 0;
 
             boolean valid = false;
