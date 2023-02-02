@@ -14,7 +14,6 @@ public class Gameplay {
         char[] playerSymbols = {'X', 'O'};
         int[] coordinates = new int[]{-1, -1};
 
-
         //call different functions :)
         bigBoard = Display.InitializeBoards();
 
@@ -23,7 +22,6 @@ public class Gameplay {
 
             if (checkForWinner(bigBoard.getBoard()[coordinates[0]][coordinates[1]].getBoard())) {
                 fillBoard(bigBoard.getBoard()[coordinates[0]][coordinates[1]].getBoard(), playerSymbols[turns % 2]);
-
             }
             turns++;
         } while (!gameWon);
@@ -37,8 +35,6 @@ public class Gameplay {
         int col = smallBoard[1];
         int smallRow;
         int smallCol;
-
-
         //Choose small board if coords are -1 -1
         if (smallBoard[0] == -1 && smallBoard[1] == -1) {
 
@@ -65,7 +61,6 @@ public class Gameplay {
         } while (!validCoordinate);
         if (checkForWinner(bigBoard.getBoard()[row][col].getBoard())) {
             fillBoard(bigBoard.getBoard()[row][col].getBoard(), playerSymbol);
-
         }
 
         return new int[]{smallRow, smallCol};//return the coordinates the player placed in
@@ -103,7 +98,6 @@ public class Gameplay {
                 }
             }
         }
-
         return true;
     }
 
