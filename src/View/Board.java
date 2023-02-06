@@ -8,7 +8,7 @@ public class Board {
         {' ',' ',' '}
     };
 
-    boolean isCompleted;
+    char fillCharacter = ' ';
 
 
     public char[][] getBoard() {
@@ -19,11 +19,11 @@ public class Board {
         this.board = board;
     }
 
-    public boolean isCompleted() {
-        return isCompleted;
+    public char getFillCharacter() {
+        return fillCharacter;
     }
 
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setFillCharacter(char fillCharacter) {
+        this.fillCharacter = fillCharacter;
     }
 }
