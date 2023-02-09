@@ -1,13 +1,13 @@
 package Controller;
 
 import View.BigBoard;
-import View.Board;
 import View.Console;
 import View.Display;
 
 public class Gameplay {
     static BigBoard bigBoard;
     static boolean gameWon = false;
+    static boolean gameGarfie = false;
 
     //:)
     public static void GameplayLoop() {
@@ -20,20 +20,23 @@ public class Gameplay {
         bigBoard = Display.InitializeBoards();
 
         do {
+//            System.out.println("turn: " + turns); //For testing
             coordinates = playerTurn(playerNames[turns % 2], playerSymbols[turns % 2], bigBoard, coordinates);
             if (checkForBigBoardWin(bigBoard)) {
                 gameWon = true;
+            } else if (checkForBigBoardGarfield(bigBoard)) {
+                gameGarfie = true;
             } else {
                 turns++;
             }
-        } while (!gameWon && turns <= 81);
-        if (turns == 82) {
+        } while (!gameWon && !gameGarfie);
+        if (gameWon) {
+            Display.DisplayBigBoard(bigBoard, new int[]{-1, -1});
+            Console.println(playerNames[turns % 2] + " wins!", Console.CYAN);
+        } else {
             Display.DisplayBigBoard(bigBoard, new int[]{-1, -1});
             Console.println("Jesus christ how did you do that? It's a cats game", Console.CYAN);
             Console.println("Game winner is Garfield", Console.CYAN);
-        } else {
-            Display.DisplayBigBoard(bigBoard, new int[]{-1, -1});
-            Console.println(playerNames[turns % 2] + " wins!", Console.CYAN);
         }
     }
 
@@ -106,6 +109,8 @@ public class Gameplay {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 board[row][col] = playerSymbol;
+
+
             }
         }
     }
@@ -153,6 +158,17 @@ public class Gameplay {
                 return true;
         }
         return false;
+    }
+
+    public static boolean checkForBigBoardGarfield(BigBoard board) {
+        int filledBoards = 0;
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (checkForFullBoard(board, new int[] {row, col}))
+                    filledBoards++;
+            }
+        }
+        return filledBoards == 9;
     }
 
 
